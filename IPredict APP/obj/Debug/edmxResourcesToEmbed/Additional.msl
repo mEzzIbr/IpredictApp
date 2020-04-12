@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IpredictModel1StoreContainer" CdmEntityContainer="IpredictEntities2">
+    <EntitySetMapping Name="appusers">
+      <EntityTypeMapping TypeName="IpredictModel1.appuser">
+        <MappingFragment StoreEntitySet="appuser">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="userphone" ColumnName="userphone" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="points" ColumnName="points" />
+          <ScalarProperty Name="userpass" ColumnName="userpass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IpredictModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="League_Year">
+    <Key>
+      <PropertyRef Name="L_uniqe" />
+    </Key>
+    <Property Name="L_uniqe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="League_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="season" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="LeagueName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Nation" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Winner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Top_Scorer" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Top_Assister" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Top_Saver" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Player_of_the_season" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F10" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F11" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F12" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F13" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F14" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F15" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F16" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F17" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F18" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F19" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F20" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F21" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F22" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F23" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Match_level">
+    <Key>
+      <PropertyRef Name="Match_ID" />
+    </Key>
+    <Property Name="HomeScore" Type="Double" />
+    <Property Name="AwayScore" Type="Double" />
+    <Property Name="HomeTeamID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="AwayTeamID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Precision="3" />
+    <Property Name="HomeFoulCommited" Type="Double" />
+    <Property Name="AwayFoulCommited" Type="Double" />
+    <Property Name="HomeYellowCard" Type="Double" />
+    <Property Name="AwayYellowCard" Type="Double" />
+    <Property Name="HomeRedCard" Type="Double" />
+    <Property Name="AwayRedCard" Type="Double" />
+    <Property Name="HomeSave" Type="Double" />
+    <Property Name="AwaySaves" Type="Double" />
+    <Property Name="StadiumID" Type="Double" />
+    <Property Name="Attendance" Type="Double" />
+    <Property Name="Match_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="leagueid" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F18" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Possibilities" Relationship="Self.FK__Possibili__Match__4BAC3F29" FromRole="Match_level" ToRole="Possibilities" />
+  </EntityType>
+  <EntityType Name="Possibility">
+    <Key>
+      <PropertyRef Name="P_ID" />
+    </Key>
+    <Property Name="P_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MatchID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="W1" Type="Double" />
+    <Property Name="W2" Type="Double" />
+    <NavigationProperty Name="Match_level" Relationship="Self.FK__Possibili__Match__4BAC3F29" FromRole="Possibilities" ToRole="Match_level" />
+  </EntityType>
+  <EntityType Name="Team_Level">
+    <Key>
+      <PropertyRef Name="T_uniqe" />
+    </Key>
+    <Property Name="T_uniqe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LeaguID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Rank" Type="Double" />
+    <Property Name="Season" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Team" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TEAMID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Played" Type="Double" />
+    <Property Name="Win" Type="Double" />
+    <Property Name="Draw" Type="Double" />
+    <Property Name="Lost" Type="Double" />
+    <Property Name="als_Scored" Type="Double" />
+    <Property Name="als_Conceded" Type="Double" />
+    <Property Name="al_Difference" Type="Double" />
+    <Property Name="Points" Type="Double" />
+    <Property Name="F14" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F15" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F16" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="F17" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK__Possibili__Match__4BAC3F29">
+    <End Role="Match_level" Type="Self.Match_level" Multiplicity="0..1" />
+    <End Role="Possibilities" Type="Self.Possibility" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Match_level">
+        <PropertyRef Name="Match_ID" />
+      </Principal>
+      <Dependent Role="Possibilities">
+        <PropertyRef Name="MatchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="IpredictEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="League_Year" EntityType="Self.League_Year" />
+    <EntitySet Name="Match_level" EntityType="Self.Match_level" />
+    <EntitySet Name="Possibilities" EntityType="Self.Possibility" />
+    <EntitySet Name="Team_Level" EntityType="Self.Team_Level" />
+    <AssociationSet Name="FK__Possibili__Match__4BAC3F29" Association="Self.FK__Possibili__Match__4BAC3F29">
+      <End Role="Match_level" EntitySet="Match_level" />
+      <End Role="Possibilities" EntitySet="Possibilities" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

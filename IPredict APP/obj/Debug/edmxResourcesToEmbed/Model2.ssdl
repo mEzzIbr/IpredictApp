@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IpredictModel2.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="UPredict">
+    <Key>
+      <PropertyRef Name="predictID" />
+    </Key>
+    <Property Name="predictID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="predict" Type="nvarchar" MaxLength="50" />
+    <Property Name="predictStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="userphone" Type="nvarchar" MaxLength="50" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" />
+    <Property Name="matchid" Type="int" />
+    <Property Name="submitedPoints" Type="int" />
+  </EntityType>
+  <EntityContainer Name="IpredictModel2StoreContainer">
+    <EntitySet Name="UPredict" EntityType="Self.UPredict" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

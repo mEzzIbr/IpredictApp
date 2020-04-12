@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IpredictModel2" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="UPredict">
+    <Key>
+      <PropertyRef Name="predictID" />
+    </Key>
+    <Property Name="predictID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="predict" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="predictStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="userphone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="matchid" Type="Int32" />
+    <Property Name="submitedPoints" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="IpredictEntities3" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="UPredicts" EntityType="Self.UPredict" />
+  </EntityContainer>
+</Schema>

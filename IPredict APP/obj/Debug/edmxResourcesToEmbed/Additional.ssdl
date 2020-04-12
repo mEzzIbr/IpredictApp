@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IpredictModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="appuser">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userphone" Type="nvarchar(max)" />
+    <Property Name="username" Type="nvarchar(max)" />
+    <Property Name="points" Type="int" />
+    <Property Name="userpass" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityContainer Name="IpredictModel1StoreContainer">
+    <EntitySet Name="appuser" EntityType="Self.appuser" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="IpredictModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="League_Year">
+          <Key>
+            <PropertyRef Name="L_uniqe" />
+          </Key>
+          <Property Name="L_uniqe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="League_ID" Type="nvarchar" MaxLength="255" />
+          <Property Name="season" Type="nvarchar" MaxLength="255" />
+          <Property Name="LeagueName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Nation" Type="nvarchar" MaxLength="255" />
+          <Property Name="Winner" Type="nvarchar" MaxLength="255" />
+          <Property Name="Top_Scorer" Type="nvarchar" MaxLength="255" />
+          <Property Name="Top_Assister" Type="nvarchar" MaxLength="255" />
+          <Property Name="Top_Saver" Type="nvarchar" MaxLength="255" />
+          <Property Name="Player_of_the_season" Type="nvarchar" MaxLength="255" />
+          <Property Name="F10" Type="nvarchar" MaxLength="255" />
+          <Property Name="F11" Type="nvarchar" MaxLength="255" />
+          <Property Name="F12" Type="nvarchar" MaxLength="255" />
+          <Property Name="F13" Type="nvarchar" MaxLength="255" />
+          <Property Name="F14" Type="nvarchar" MaxLength="255" />
+          <Property Name="F15" Type="nvarchar" MaxLength="255" />
+          <Property Name="F16" Type="nvarchar" MaxLength="255" />
+          <Property Name="F17" Type="nvarchar" MaxLength="255" />
+          <Property Name="F18" Type="nvarchar" MaxLength="255" />
+          <Property Name="F19" Type="nvarchar" MaxLength="255" />
+          <Property Name="F20" Type="nvarchar" MaxLength="255" />
+          <Property Name="F21" Type="nvarchar" MaxLength="255" />
+          <Property Name="F22" Type="nvarchar" MaxLength="255" />
+          <Property Name="F23" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Match_level">
+          <Key>
+            <PropertyRef Name="Match_ID" />
+          </Key>
+          <Property Name="HomeScore" Type="float" />
+          <Property Name="AwayScore" Type="float" />
+          <Property Name="HomeTeamID" Type="nvarchar" MaxLength="255" />
+          <Property Name="AwayTeamID" Type="nvarchar" MaxLength="255" />
+          <Property Name="Date" Type="datetime" />
+          <Property Name="HomeFoulCommited" Type="float" />
+          <Property Name="AwayFoulCommited" Type="float" />
+          <Property Name="HomeYellowCard" Type="float" />
+          <Property Name="AwayYellowCard" Type="float" />
+          <Property Name="HomeRedCard" Type="float" />
+          <Property Name="AwayRedCard" Type="float" />
+          <Property Name="HomeSave" Type="float" />
+          <Property Name="AwaySaves" Type="float" />
+          <Property Name="StadiumID" Type="float" />
+          <Property Name="Attendance" Type="float" />
+          <Property Name="Match_ID" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="leagueid" Type="nvarchar" MaxLength="255" />
+          <Property Name="F18" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Possibilities">
+          <Key>
+            <PropertyRef Name="P_ID" />
+          </Key>
+          <Property Name="P_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MatchID" Type="nvarchar" MaxLength="255" />
+          <Property Name="W1" Type="float" />
+          <Property Name="W2" Type="float" />
+        </EntityType>
+        <EntityType Name="Team_Level">
+          <Key>
+            <PropertyRef Name="T_uniqe" />
+          </Key>
+          <Property Name="T_uniqe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LeaguID" Type="nvarchar" MaxLength="255" />
+          <Property Name="Rank" Type="float" />
+          <Property Name="Season" Type="nvarchar" MaxLength="255" />
+          <Property Name="Team" Type="nvarchar" MaxLength="255" />
+          <Property Name="TEAMID" Type="nvarchar" MaxLength="255" />
+          <Property Name="Played" Type="float" />
+          <Property Name="Win" Type="float" />
+          <Property Name="Draw" Type="float" />
+          <Property Name="Lost" Type="float" />
+          <Property Name="als_Scored" Type="float" />
+          <Property Name="als_Conceded" Type="float" />
+          <Property Name="al_Difference" Type="float" />
+          <Property Name="Points" Type="float" />
+          <Property Name="F14" Type="nvarchar" MaxLength="255" />
+          <Property Name="F15" Type="nvarchar" MaxLength="255" />
+          <Property Name="F16" Type="nvarchar" MaxLength="255" />
+          <Property Name="F17" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK__Possibili__Match__4BAC3F29">
+          <End Role="Match_level" Type="Self.Match_level" Multiplicity="0..1" />
+          <End Role="Possibilities" Type="Self.Possibilities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Match_level">
+              <PropertyRef Name="Match_ID" />
+            </Principal>
+            <Dependent Role="Possibilities">
+              <PropertyRef Name="MatchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IpredictModelStoreContainer">
+          <EntitySet Name="League_Year" EntityType="Self.League_Year" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Match_level" EntityType="Self.Match_level" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Possibilities" EntityType="Self.Possibilities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Team_Level" EntityType="Self.Team_Level" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Possibili__Match__4BAC3F29" Association="Self.FK__Possibili__Match__4BAC3F29">
+            <End Role="Match_level" EntitySet="Match_level" />
+            <End Role="Possibilities" EntitySet="Possibilities" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IpredictModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="League_Year">
+          <Key>
+            <PropertyRef Name="L_uniqe" />
+          </Key>
+          <Property Name="L_uniqe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="League_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="season" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LeagueName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Nation" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Winner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Top_Scorer" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Top_Assister" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Top_Saver" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Player_of_the_season" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F10" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F11" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F12" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F13" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F14" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F15" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F16" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F17" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F18" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F19" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F20" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F21" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F22" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F23" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Match_level">
+          <Key>
+            <PropertyRef Name="Match_ID" />
+          </Key>
+          <Property Name="HomeScore" Type="Double" />
+          <Property Name="AwayScore" Type="Double" />
+          <Property Name="HomeTeamID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AwayTeamID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Precision="3" />
+          <Property Name="HomeFoulCommited" Type="Double" />
+          <Property Name="AwayFoulCommited" Type="Double" />
+          <Property Name="HomeYellowCard" Type="Double" />
+          <Property Name="AwayYellowCard" Type="Double" />
+          <Property Name="HomeRedCard" Type="Double" />
+          <Property Name="AwayRedCard" Type="Double" />
+          <Property Name="HomeSave" Type="Double" />
+          <Property Name="AwaySaves" Type="Double" />
+          <Property Name="StadiumID" Type="Double" />
+          <Property Name="Attendance" Type="Double" />
+          <Property Name="Match_ID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="leagueid" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F18" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Possibilities" Relationship="Self.FK__Possibili__Match__4BAC3F29" FromRole="Match_level" ToRole="Possibilities" />
+        </EntityType>
+        <EntityType Name="Possibility">
+          <Key>
+            <PropertyRef Name="P_ID" />
+          </Key>
+          <Property Name="P_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MatchID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="W1" Type="Double" />
+          <Property Name="W2" Type="Double" />
+          <NavigationProperty Name="Match_level" Relationship="Self.FK__Possibili__Match__4BAC3F29" FromRole="Possibilities" ToRole="Match_level" />
+        </EntityType>
+        <EntityType Name="Team_Level">
+          <Key>
+            <PropertyRef Name="T_uniqe" />
+          </Key>
+          <Property Name="T_uniqe" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LeaguID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Rank" Type="Double" />
+          <Property Name="Season" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Team" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="TEAMID" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Played" Type="Double" />
+          <Property Name="Win" Type="Double" />
+          <Property Name="Draw" Type="Double" />
+          <Property Name="Lost" Type="Double" />
+          <Property Name="als_Scored" Type="Double" />
+          <Property Name="als_Conceded" Type="Double" />
+          <Property Name="al_Difference" Type="Double" />
+          <Property Name="Points" Type="Double" />
+          <Property Name="F14" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F15" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F16" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="F17" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK__Possibili__Match__4BAC3F29">
+          <End Role="Match_level" Type="Self.Match_level" Multiplicity="0..1" />
+          <End Role="Possibilities" Type="Self.Possibility" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Match_level">
+              <PropertyRef Name="Match_ID" />
+            </Principal>
+            <Dependent Role="Possibilities">
+              <PropertyRef Name="MatchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IpredictEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="League_Year" EntityType="Self.League_Year" />
+          <EntitySet Name="Match_level" EntityType="Self.Match_level" />
+          <EntitySet Name="Possibilities" EntityType="Self.Possibility" />
+          <EntitySet Name="Team_Level" EntityType="Self.Team_Level" />
+          <AssociationSet Name="FK__Possibili__Match__4BAC3F29" Association="Self.FK__Possibili__Match__4BAC3F29">
+            <End Role="Match_level" EntitySet="Match_level" />
+            <End Role="Possibilities" EntitySet="Possibilities" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IpredictModelStoreContainer" CdmEntityContainer="IpredictEntities1">
+          <EntitySetMapping Name="League_Year">
+            <EntityTypeMapping TypeName="IpredictModel.League_Year">
+              <MappingFragment StoreEntitySet="League_Year">
+                <ScalarProperty Name="L_uniqe" ColumnName="L_uniqe" />
+                <ScalarProperty Name="League_ID" ColumnName="League_ID" />
+                <ScalarProperty Name="season" ColumnName="season" />
+                <ScalarProperty Name="LeagueName" ColumnName="LeagueName" />
+                <ScalarProperty Name="Nation" ColumnName="Nation" />
+                <ScalarProperty Name="Winner" ColumnName="Winner" />
+                <ScalarProperty Name="Top_Scorer" ColumnName="Top_Scorer" />
+                <ScalarProperty Name="Top_Assister" ColumnName="Top_Assister" />
+                <ScalarProperty Name="Top_Saver" ColumnName="Top_Saver" />
+                <ScalarProperty Name="Player_of_the_season" ColumnName="Player_of_the_season" />
+                <ScalarProperty Name="F10" ColumnName="F10" />
+                <ScalarProperty Name="F11" ColumnName="F11" />
+                <ScalarProperty Name="F12" ColumnName="F12" />
+                <ScalarProperty Name="F13" ColumnName="F13" />
+                <ScalarProperty Name="F14" ColumnName="F14" />
+                <ScalarProperty Name="F15" ColumnName="F15" />
+                <ScalarProperty Name="F16" ColumnName="F16" />
+                <ScalarProperty Name="F17" ColumnName="F17" />
+                <ScalarProperty Name="F18" ColumnName="F18" />
+                <ScalarProperty Name="F19" ColumnName="F19" />
+                <ScalarProperty Name="F20" ColumnName="F20" />
+                <ScalarProperty Name="F21" ColumnName="F21" />
+                <ScalarProperty Name="F22" ColumnName="F22" />
+                <ScalarProperty Name="F23" ColumnName="F23" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Match_level">
+            <EntityTypeMapping TypeName="IpredictModel.Match_level">
+              <MappingFragment StoreEntitySet="Match_level">
+                <ScalarProperty Name="HomeScore" ColumnName="HomeScore" />
+                <ScalarProperty Name="AwayScore" ColumnName="AwayScore" />
+                <ScalarProperty Name="HomeTeamID" ColumnName="HomeTeamID" />
+                <ScalarProperty Name="AwayTeamID" ColumnName="AwayTeamID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="HomeFoulCommited" ColumnName="HomeFoulCommited" />
+                <ScalarProperty Name="AwayFoulCommited" ColumnName="AwayFoulCommited" />
+                <ScalarProperty Name="HomeYellowCard" ColumnName="HomeYellowCard" />
+                <ScalarProperty Name="AwayYellowCard" ColumnName="AwayYellowCard" />
+                <ScalarProperty Name="HomeRedCard" ColumnName="HomeRedCard" />
+                <ScalarProperty Name="AwayRedCard" ColumnName="AwayRedCard" />
+                <ScalarProperty Name="HomeSave" ColumnName="HomeSave" />
+                <ScalarProperty Name="AwaySaves" ColumnName="AwaySaves" />
+                <ScalarProperty Name="StadiumID" ColumnName="StadiumID" />
+                <ScalarProperty Name="Attendance" ColumnName="Attendance" />
+                <ScalarProperty Name="Match_ID" ColumnName="Match_ID" />
+                <ScalarProperty Name="leagueid" ColumnName="leagueid" />
+                <ScalarProperty Name="F18" ColumnName="F18" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Possibilities">
+            <EntityTypeMapping TypeName="IpredictModel.Possibility">
+              <MappingFragment StoreEntitySet="Possibilities">
+                <ScalarProperty Name="P_ID" ColumnName="P_ID" />
+                <ScalarProperty Name="MatchID" ColumnName="MatchID" />
+                <ScalarProperty Name="W1" ColumnName="W1" />
+                <ScalarProperty Name="W2" ColumnName="W2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Team_Level">
+            <EntityTypeMapping TypeName="IpredictModel.Team_Level">
+              <MappingFragment StoreEntitySet="Team_Level">
+                <ScalarProperty Name="T_uniqe" ColumnName="T_uniqe" />
+                <ScalarProperty Name="LeaguID" ColumnName="LeaguID" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+                <ScalarProperty Name="Season" ColumnName="Season" />
+                <ScalarProperty Name="Team" ColumnName="Team" />
+                <ScalarProperty Name="TEAMID" ColumnName="TEAMID" />
+                <ScalarProperty Name="Played" ColumnName="Played" />
+                <ScalarProperty Name="Win" ColumnName="Win" />
+                <ScalarProperty Name="Draw" ColumnName="Draw" />
+                <ScalarProperty Name="Lost" ColumnName="Lost" />
+                <ScalarProperty Name="als_Scored" ColumnName="als_Scored" />
+                <ScalarProperty Name="als_Conceded" ColumnName="als_Conceded" />
+                <ScalarProperty Name="al_Difference" ColumnName="al_Difference" />
+                <ScalarProperty Name="Points" ColumnName="Points" />
+                <ScalarProperty Name="F14" ColumnName="F14" />
+                <ScalarProperty Name="F15" ColumnName="F15" />
+                <ScalarProperty Name="F16" ColumnName="F16" />
+                <ScalarProperty Name="F17" ColumnName="F17" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

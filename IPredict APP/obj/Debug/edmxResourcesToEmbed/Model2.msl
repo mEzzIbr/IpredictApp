@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IpredictModel2StoreContainer" CdmEntityContainer="IpredictEntities3">
+    <EntitySetMapping Name="UPredicts">
+      <EntityTypeMapping TypeName="IpredictModel2.UPredict">
+        <MappingFragment StoreEntitySet="UPredict">
+          <ScalarProperty Name="predictID" ColumnName="predictID" />
+          <ScalarProperty Name="predict" ColumnName="predict" />
+          <ScalarProperty Name="predictStatus" ColumnName="predictStatus" />
+          <ScalarProperty Name="userphone" ColumnName="userphone" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="matchid" ColumnName="matchid" />
+          <ScalarProperty Name="submitedPoints" ColumnName="submitedPoints" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

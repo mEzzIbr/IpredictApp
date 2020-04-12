@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IpredictModelStoreContainer" CdmEntityContainer="IpredictEntities1">
+    <EntitySetMapping Name="League_Year">
+      <EntityTypeMapping TypeName="IpredictModel.League_Year">
+        <MappingFragment StoreEntitySet="League_Year">
+          <ScalarProperty Name="L_uniqe" ColumnName="L_uniqe" />
+          <ScalarProperty Name="League_ID" ColumnName="League_ID" />
+          <ScalarProperty Name="season" ColumnName="season" />
+          <ScalarProperty Name="LeagueName" ColumnName="LeagueName" />
+          <ScalarProperty Name="Nation" ColumnName="Nation" />
+          <ScalarProperty Name="Winner" ColumnName="Winner" />
+          <ScalarProperty Name="Top_Scorer" ColumnName="Top_Scorer" />
+          <ScalarProperty Name="Top_Assister" ColumnName="Top_Assister" />
+          <ScalarProperty Name="Top_Saver" ColumnName="Top_Saver" />
+          <ScalarProperty Name="Player_of_the_season" ColumnName="Player_of_the_season" />
+          <ScalarProperty Name="F10" ColumnName="F10" />
+          <ScalarProperty Name="F11" ColumnName="F11" />
+          <ScalarProperty Name="F12" ColumnName="F12" />
+          <ScalarProperty Name="F13" ColumnName="F13" />
+          <ScalarProperty Name="F14" ColumnName="F14" />
+          <ScalarProperty Name="F15" ColumnName="F15" />
+          <ScalarProperty Name="F16" ColumnName="F16" />
+          <ScalarProperty Name="F17" ColumnName="F17" />
+          <ScalarProperty Name="F18" ColumnName="F18" />
+          <ScalarProperty Name="F19" ColumnName="F19" />
+          <ScalarProperty Name="F20" ColumnName="F20" />
+          <ScalarProperty Name="F21" ColumnName="F21" />
+          <ScalarProperty Name="F22" ColumnName="F22" />
+          <ScalarProperty Name="F23" ColumnName="F23" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Match_level">
+      <EntityTypeMapping TypeName="IpredictModel.Match_level">
+        <MappingFragment StoreEntitySet="Match_level">
+          <ScalarProperty Name="HomeScore" ColumnName="HomeScore" />
+          <ScalarProperty Name="AwayScore" ColumnName="AwayScore" />
+          <ScalarProperty Name="HomeTeamID" ColumnName="HomeTeamID" />
+          <ScalarProperty Name="AwayTeamID" ColumnName="AwayTeamID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="HomeFoulCommited" ColumnName="HomeFoulCommited" />
+          <ScalarProperty Name="AwayFoulCommited" ColumnName="AwayFoulCommited" />
+          <ScalarProperty Name="HomeYellowCard" ColumnName="HomeYellowCard" />
+          <ScalarProperty Name="AwayYellowCard" ColumnName="AwayYellowCard" />
+          <ScalarProperty Name="HomeRedCard" ColumnName="HomeRedCard" />
+          <ScalarProperty Name="AwayRedCard" ColumnName="AwayRedCard" />
+          <ScalarProperty Name="HomeSave" ColumnName="HomeSave" />
+          <ScalarProperty Name="AwaySaves" ColumnName="AwaySaves" />
+          <ScalarProperty Name="StadiumID" ColumnName="StadiumID" />
+          <ScalarProperty Name="Attendance" ColumnName="Attendance" />
+          <ScalarProperty Name="Match_ID" ColumnName="Match_ID" />
+          <ScalarProperty Name="leagueid" ColumnName="leagueid" />
+          <ScalarProperty Name="F18" ColumnName="F18" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Possibilities">
+      <EntityTypeMapping TypeName="IpredictModel.Possibility">
+        <MappingFragment StoreEntitySet="Possibilities">
+          <ScalarProperty Name="P_ID" ColumnName="P_ID" />
+          <ScalarProperty Name="MatchID" ColumnName="MatchID" />
+          <ScalarProperty Name="W1" ColumnName="W1" />
+          <ScalarProperty Name="W2" ColumnName="W2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Team_Level">
+      <EntityTypeMapping TypeName="IpredictModel.Team_Level">
+        <MappingFragment StoreEntitySet="Team_Level">
+          <ScalarProperty Name="T_uniqe" ColumnName="T_uniqe" />
+          <ScalarProperty Name="LeaguID" ColumnName="LeaguID" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="Season" ColumnName="Season" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+          <ScalarProperty Name="TEAMID" ColumnName="TEAMID" />
+          <ScalarProperty Name="Played" ColumnName="Played" />
+          <ScalarProperty Name="Win" ColumnName="Win" />
+          <ScalarProperty Name="Draw" ColumnName="Draw" />
+          <ScalarProperty Name="Lost" ColumnName="Lost" />
+          <ScalarProperty Name="als_Scored" ColumnName="als_Scored" />
+          <ScalarProperty Name="als_Conceded" ColumnName="als_Conceded" />
+          <ScalarProperty Name="al_Difference" ColumnName="al_Difference" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+          <ScalarProperty Name="F14" ColumnName="F14" />
+          <ScalarProperty Name="F15" ColumnName="F15" />
+          <ScalarProperty Name="F16" ColumnName="F16" />
+          <ScalarProperty Name="F17" ColumnName="F17" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
